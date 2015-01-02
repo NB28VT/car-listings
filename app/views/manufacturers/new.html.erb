@@ -1,0 +1,11 @@
+<h1>Manufacturers</h1>
+  <%= form_for @manufacturer do |f| %>
+
+    <%= f.label :name, "Manufacturer Name" %>
+    <%= f.text_field :name %>
+
+    <%= f.label :country, "Manufacturer Country" %>
+    <%= f.text_field :country %>
+
+    <%= f.submit "Add manufacturer" %>
+  <% end %>

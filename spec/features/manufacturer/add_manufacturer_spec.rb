@@ -13,7 +13,7 @@ feature 'user adds car manufacturer', %Q{
     * If I specify the required information, the manufacturer is recorded and I am redirected to the index of manufacturers
     } do
     scenario 'add valid car manufacturer' do
-      visit new_manufacturer_path
+      visit manufacturers_path
       click_on "Add new manufacturer"
 
       fill_in "Manufacturer Name", with: "Ferrari"

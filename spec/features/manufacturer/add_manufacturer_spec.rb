@@ -8,9 +8,9 @@ feature 'user adds car manufacturer', %Q{
 
   Acceptance Criteria:
 
-  [ ] I must specify a manufacturer name and country.
-  [ ] If I do not specify the required information, I am presented with errors.
-    * If I specify the required information, the manufacturer is recorded and I am redirected to the index of manufacturers
+  [x] I must specify a manufacturer name and country.
+  [x] If I do not specify the required information, I am presented with errors.
+  [x] If I specify the required information, the manufacturer is recorded and I am redirected to the index of manufacturers
     } do
     scenario 'add valid car manufacturer' do
       visit manufacturers_path
@@ -33,7 +33,7 @@ feature 'user adds car manufacturer', %Q{
 
       click_on "Add manufacturer"
 
-      expect(page).to have_content "Invalid data supplied!"      
+      expect(page).to have_content "Invalid data supplied!"
     end
 
 

@@ -8,9 +8,9 @@ class ManufacturersController<ApplicationController
     @manufacturer = Manufacturer.new(manufacturer_params)
 
     if @manufacturer.save
-      redirect_to manufacturers_path
+      redirect_to manufacturers_path, :notice => "Manufacturer succesfully added!"
     else
-      redirect_to new_manufacturer_path
+      redirect_to new_manufacturer_path, :notice => "Invalid data supplied!"
     end
   end
 

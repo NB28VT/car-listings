@@ -23,8 +23,19 @@ feature 'user adds car manufacturer', %Q{
 
       expect(page).to have_content "Ferrari"
       expect(page).to have_content "Manufacturers"
+      expect(page).to have_content "Manufacturer succesfully added!"
 
     end
+
+    scenario 'user does not fill out fields' do
+      visit manufacturers_path
+      click_on "Add new manufacturer"
+
+      click_on "Add manufacturer"
+
+      expect(page).to have_content "Invalid data supplied!"      
+    end
+
 
 
 

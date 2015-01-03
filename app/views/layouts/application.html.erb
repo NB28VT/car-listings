@@ -6,7 +6,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -16,13 +16,20 @@
 
     <section class="top-bar-section">
       <ul class="right">
+        <li><%= link_to 'Manufacturers', manufacturers_path %></li>
+        <li><%= link_to 'Cars', cars_path %></li>
+        <li><%= link_to 'Add manufacturer', new_manufacturer_path %></li>
+        <li><%= link_to 'Add car', new_car_path %></li>
+      </ul>
+
+      <!-- <ul class="right">
         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
-      </ul>
+      </ul> -->
     </section>
   </nav>
 
@@ -33,6 +40,11 @@
   <%- end -%>
 
   <%= yield %>
+
+
+
+
+
 
   <%= javascript_include_tag 'application' %>
   <%= javascript_tag do %>

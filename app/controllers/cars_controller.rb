@@ -19,7 +19,6 @@ class CarsController<ApplicationController
     @cars = Car.all
   end
 
-
   private
 
   def car_params

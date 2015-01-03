@@ -31,7 +31,26 @@ feature 'user adds a new car', %Q{
     fill_in "Description", with: "Fix It Again Tony!"
     click_on "Add Car"
 
+    new_manufacturer.destroy
+
     expect(page).to have_content "Ferrari"
     expect(page).to have_content "Car succesfully added!"
   end
+
+  scenario 'user does not fill out all fields' do
+    visit cars_path
+    click_on "Add new car"
+
+    select('Ferrari', :from => 'car[manufacturer_id]')
+    fill_in "Color", with: "Red"
+    fill_in "Mileage", with: "20000"
+    fill_in "Description", with: "Fix It Again Tony!"
+    click_on "Add Car"
+
+    save_and_open_page
+
+    expect(page).to have_content "Year can't be blank"
+  end
+
+
 end

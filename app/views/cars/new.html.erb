@@ -1,4 +1,15 @@
 <h1>Car</h1>
+
+<% if @car.errors.any? %>
+<h2>ERROR!</h2>
+<ul>
+  <% @car.errors.full_messages.each do |error_msg| %>
+  <li><%= error_msg %></li>
+  <% end %>
+</ul>
+
+<% end %>
+
 <%= form_for @car do |f| %>
 
 <%= f.select :manufacturer_id, @manufacturers.map {|m| [ m.name, m.id ] }, {prompt: 'Select Manufacturer'} %>
@@ -16,4 +27,5 @@
 <%= f.text_area :description %>
 
 <%= f.submit "Add Car" %>
+
 <% end %>

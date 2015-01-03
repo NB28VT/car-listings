@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :manufacturers, only: [:new, :create, :index]
+
+  resources :manufacturers do
+    resources :cars
+  end
+
   resources :cars, only: [:new, :create, :index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

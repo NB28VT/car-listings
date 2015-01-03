@@ -17,18 +17,21 @@ feature 'user adds a new car', %Q{
 
 
 } do
+
+  new_manufacturer = Manufacturer.create(name: "Ferrari", country: "Italy")
+
   scenario 'add valid car' do
     visit cars_path
     click_on "Add new car"
 
-    fill_in "Manufacturer Name", with: "Ferrari"
+    select('Ferrari', :from => 'car[manufacturer_id]')
     fill_in "Color", with: "Red"
     fill_in "Year", with: "1962"
     fill_in "Mileage", with: "20000"
     fill_in "Description", with: "Fix It Again Tony!"
+    click_on "Add Car"
 
     expect(page).to have_content "Ferrari"
     expect(page).to have_content "Car succesfully added!"
-
   end
 end

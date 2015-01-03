@@ -1,0 +1,19 @@
+<h1>Car</h1>
+<%= form_for @car do |f| %>
+
+<%= f.select :manufacturer_id, @manufacturers.map {|m| [ m.name, m.id ] }, {prompt: 'Select Manufacturer'} %>
+
+<%= f.label :color, "Color" %>
+<%= f.text_field :color %>
+
+<%= f.label :year, "Year" %>
+<%= f.text_field :year %>
+
+<%= f.label :mileage, "Mileage" %>
+<%= f.text_field :mileage %>
+
+<%= f.label :description, "Description" %>
+<%= f.text_area :description %>
+
+<%= f.submit "Add Car" %>
+<% end %>
